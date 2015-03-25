@@ -1,6 +1,5 @@
 var commands = require('../../../services/commands/commands-service.js');
 
-
 function CommandsController() {
 }
 
@@ -9,6 +8,7 @@ function get(req, res, next) {
     .then(function (value) {
       if('x-raw-command' in req.headers){
         res.status(200).send(value);
+        return;
       }
       res.status(200).json({ command: value});
     })

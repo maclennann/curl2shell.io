@@ -4,6 +4,7 @@ var application = express();
 var bodyParser = require('body-parser');
 var routeConfig = require('./route-config');
 var settingsConfig = require('./settings/settings-config');
+var models = require('../../data/models');
 
 function configureWorker(application) {
   configureApplication(application);
@@ -29,10 +30,12 @@ function configureRoutes(application) {
 }
 
 function startServer(application) {
-  var server = http.createServer(application);
+  models.sequelize.sync().then(function(){
+    var server = http.createServer(application);
 
-  server.listen(settingsConfig.settings.workerPort, settingsConfig.settings.hostName, settingsConfig.settings.queueLength, function() {
-    console.log('listening at http://%s:%s', settingsConfig.settings.hostName, settingsConfig.settings.workerPort);
+    server.listen(settingsConfig.settings.workerPort, settingsConfig.settings.hostName, settingsConfig.settings.queueLength, function() {
+      console.log('listening at http://%s:%s', settingsConfig.settings.hostName, settingsConfig.settings.workerPort);
+    });
   });
 }
 

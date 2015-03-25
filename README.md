@@ -24,3 +24,17 @@ we will send the packets to you encryption-free! It's that easy!
 But wait, there's more!
 
 [more]
+
+
+### Actual technical stuff
+
+I'm still in the process of learning how to 'really' node. This was generated with
+the [yeoman expressrestapi generator](https://github.com/trwalker/generator-express-rest-api).
+
+How to:
+
+`npm install`
+`npm install -g sequelize-cli`
+`npm start`
+
+That will migrate the DB and start the API (with a master and some workers) on port 9000.
