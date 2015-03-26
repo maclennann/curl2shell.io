@@ -4,7 +4,9 @@ function CommandsController() {
 }
 
 function get(req, res, next) {
-  commands.lookupCommands(req.params['commandid'])
+  var db = req.app.get('models');
+
+  commands.lookupCommands(req.params['commandid'], db)
     .then(function (value) {
       if('x-raw-command' in req.headers){
         res.status(200).send(value);

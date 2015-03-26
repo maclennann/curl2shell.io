@@ -3,8 +3,8 @@ var repository = require('../../repositories/commands/commands-repository');
 function CommandsService() {
 }
 
-function lookupCommands(id) {
-  return repository.getCommandsData(id);
+function lookupCommands(id, db) {
+  return repository.getCommandsData(id, db);
 }
 
 CommandsService.prototype = {

@@ -1,22 +1,20 @@
-var db = require('../../../data/models');
-
 function CommandsRepository() {
 }
 
-function getCommandsData(id) {
+function getCommandsData(id, db) {
   if(id === undefined){
     return db.Command.count()
       .then(function(number){
         var randomNumber = Math.floor(Math.random() * (number - 0)) + 1;
-        return getOneCommand(randomNumber);
+        return getOneCommand(randomNumber, db);
       });
   }
 
-  return getOneCommand(id);
+  return getOneCommand(id, db);
 
 }
 
-function getOneCommand(id){
+function getOneCommand(id, db){
   return db.Command.findOne({
     where: {id: id}
   }).then(function(model){

@@ -34,7 +34,20 @@ the [yeoman expressrestapi generator](https://github.com/trwalker/generator-expr
 How to:
 
 `npm install`
+
 `npm install -g sequelize-cli`
+
 `npm start`
 
 That will migrate the DB and start the API (with a master and some workers) on port 9000.
+
+Now just hit `localhost:9000/v1/commands` to receive a random command (or /# to get a specific number).
+Set `x-raw-command` to get the command without json wrapping.
+
+### Ideas
+
+* /v1/install/cron.sh - installs a cron job that just curls /v1/commands and pipes to bash once and hour at random minute
+* set ridiculous aliases (e.g. cd -> sudo reboot)
+* steal more stuff from climagic
+* separate calls (via resource or qsp) by shell type, risk-level, category
+* /v1/install/rvm? /v1/install/choco? what else follows this pattern? chef?
