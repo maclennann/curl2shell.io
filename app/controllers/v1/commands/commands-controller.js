@@ -11,11 +11,11 @@ function get(req, res, next) {
 
     command.then(function(command) {
         if('x-raw-command' in req.headers) {
-            res.status(200).send(command);
+            res.status(200).send(command.get('command'));
             return;
         }
 
-        res.status(200).json({ command: command});
+        res.status(200).json(command);
     })
     .catch(function(value) {
         res.status(500).json({ error: value});

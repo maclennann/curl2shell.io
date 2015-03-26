@@ -12,7 +12,7 @@ function getCommandById(id, db) {
     return db.Command.findOne({
         where: {id: id}
     }).then(function(model){
-        return model.get('command');
+        return model;
     }).catch(function(err){
         return err;
     });
