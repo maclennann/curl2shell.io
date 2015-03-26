@@ -5,18 +5,21 @@ function CommandsController() {
 
 function get(req, res, next) {
   var db = req.app.get('models');
+  var command = (req.params['commandid'] === undefined)
+              ? commands.getRandomCommand(db)
+              : commands.getCommandById(req.params['commandid'], db);
 
-  commands.lookupCommands(req.params['commandid'], db)
-    .then(function (value) {
-      if('x-raw-command' in req.headers){
-        res.status(200).send(value);
-        return;
-      }
-      res.status(200).json({ command: value});
-    })
-    .catch(function(value) {
-      res.status(500).json({ error: value});
-    });
+  command.then(function(command) {
+    if('x-raw-command' in req.headers) {
+      res.status(200).send(command);
+      return;
+    }
+
+    res.status(200).json({ command: command});
+  })
+  .catch(function(value) {
+    res.status(500).json({ error: value});
+  });
 }
 
 CommandsController.prototype = {

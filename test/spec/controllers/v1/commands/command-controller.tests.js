@@ -23,6 +23,7 @@ describe('CommandsController Tests', function() {
     });
 
     it('should call res.status() one time', function(done) {
+      console.log(commandsController);
       commandsController.get(req, res, next);
 
       expect(res.status.callCount).to.equal(1);
@@ -30,7 +31,7 @@ describe('CommandsController Tests', function() {
     });
 
     it('should call res.status() with 200', function(done) {
-        commandsController.get(req, res, next);
+      commandsController.get(req, res, next);
 
       expect(res.status.calledWith(200)).to.equal(true);
       done();

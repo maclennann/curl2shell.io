@@ -3,12 +3,21 @@ var repository = require('../../repositories/commands/commands-repository');
 function CommandsService() {
 }
 
-function lookupCommands(id, db) {
-  return repository.getCommandsData(id, db);
+function getCommandById(id, db) {
+  return repository.getCommandById(id, db);
+}
+
+function getRandomCommand(db){
+  return repository.getCommandCount(db)
+    .then(function(number){
+      var randomNumber = Math.floor(Math.random() * number) + 1;
+      return repository.getCommandById(randomNumber, db);
+    });
 }
 
 CommandsService.prototype = {
-  lookupCommands: lookupCommands
+  getCommandById: getCommandById,
+  getRandomCommand: getRandomCommand
 };
 
 var commandsService = new CommandsService();

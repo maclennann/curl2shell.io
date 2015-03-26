@@ -10,7 +10,7 @@ describe('CommandsService Tests', function() {
   describe('lookupCommands', function() {
 
     it('is a function', function(done) {
-      expect(commandsService.lookupCommands).to.be.a('function');
+      expect(commandsService.getCommandById).to.be.a('function');
       done();
     });
 

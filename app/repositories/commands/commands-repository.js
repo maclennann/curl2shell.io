@@ -1,20 +1,14 @@
 function CommandsRepository() {
 }
 
-function getCommandsData(id, db) {
-  if(id === undefined){
-    return db.Command.count()
-      .then(function(number){
-        var randomNumber = Math.floor(Math.random() * (number - 0)) + 1;
-        return getOneCommand(randomNumber, db);
-      });
-  }
-
-  return getOneCommand(id, db);
-
+function getCommandCount(db, predicate) {
+  return db.Command.count(predicate)
+    .catch(function(err){
+      console.log(err);
+    });
 }
 
-function getOneCommand(id, db){
+function getCommandById(id, db) {
   return db.Command.findOne({
     where: {id: id}
   }).then(function(model){
@@ -25,7 +19,8 @@ function getOneCommand(id, db){
 }
 
 CommandsRepository.prototype = {
-    getCommandsData: getCommandsData
+    getCommandCount: getCommandCount,
+    getCommandById: getCommandById
 };
 
 var commandsRepository = new CommandsRepository();

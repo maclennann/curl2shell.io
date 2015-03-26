@@ -10,7 +10,7 @@ describe('CommandsRepository Tests', function() {
   describe('getCommandsData()', function() {
 
     it('is a function', function(done) {
-      expect(commandsRepository.getCommandsData).to.be.a('function');
+      expect(commandsRepository.getCommandById).to.be.a('function');
       done();
     });
 
