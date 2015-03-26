@@ -1,5 +1,7 @@
 ##curl2shell.io
 
+[![Build Status](https://travis-ci.org/maclennann/curl2shell.io.svg?branch=master)](https://travis-ci.org/maclennann/curl2shell.io)
+
 Execute arbitrary commands from the Internet without ever leaving your terminal!
 
 Simply curl our api, and a completely arbitrary command will be sent directly to you,
