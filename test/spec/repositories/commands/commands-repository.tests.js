@@ -1,18 +1,18 @@
 
 describe('CommandsRepository Tests', function() {
 
-  var commandsRepository;
+    var commandsRepository;
 
-  beforeEach(function() {
-    commandsRepository = require('../../../../app/repositories/commands/commands-repository');
-  });
-
-  describe('getCommandsData()', function() {
-
-    it('is a function', function(done) {
-      expect(commandsRepository.getCommandById).to.be.a('function');
-      done();
+    beforeEach(function() {
+        commandsRepository = require('../../../../app/repositories/commands/commands-repository');
     });
 
-  });
+    describe('getCommandsData()', function() {
+
+        it('is a function', function(done) {
+            expect(commandsRepository.getCommandById).to.be.a('function');
+            done();
+        });
+
+    });
 });

@@ -1,14 +1,19 @@
 {
-  "routes": [
-    {
-      "route": "/v1/commands/:commandid",
-      "method": "GET",
-      "controller": "../controllers/v1/commands/commands-controller"
-    },
-    {
-      "route": "/v1/commands/",
-      "method": "GET",
-      "controller": "../controllers/v1/commands/commands-controller"
-    }
-  ]
+    "routes": [
+        {
+            "route": "/v1/commands/:commandid",
+            "method": "GET",
+            "controller": "../controllers/v1/commands/commands-controller"
+        },
+        {
+            "route": "/v1/commands/",
+            "method": "GET",
+            "controller": "../controllers/v1/commands/commands-controller"
+        },
+        {
+            "route": "/v1/clowns/:clownid",
+            "method": "GET",
+            "controller": "../controllers/v1/circus/clowns-controller"
+        }
+    ]
 }

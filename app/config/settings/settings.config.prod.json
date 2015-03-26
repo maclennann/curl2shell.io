@@ -1,5 +1,5 @@
 {
-  "settings": [
-    { "name": "queueLength", "value": 511 }
-  ]
+    "settings": [
+        { "name": "queueLength", "value": 511 }
+    ]
 }
