@@ -15,6 +15,8 @@ function configureWorker(application) {
 
 function configureApplication(application) {
     application.use(bodyParser.json());
+    application.use(express.static('app/static'));
+
     application.set('models', models);
 
     application.use(function(req, res, next) {
