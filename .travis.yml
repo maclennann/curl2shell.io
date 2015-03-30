@@ -12,7 +12,7 @@ deploy:
     secret_access_key:
         secure: "FYIKp3K/xu1HgWzvTIJDZ4QhtW6gIyCRrAJlZNoBILnFFeETF72odtSTxBSevhE9fnq6hKCWABbLUFzyjAyESEMPySD9uq//2jKctADwIA8MVMCWs/JivmnC5viGd8PbOyZKdfH4PM96MlgTRROAlrB16zc6F1QQQhwrAyw+iqc="
     region: us-west-2
-    app: curl2shellio
+    app: curl2shell.io
     env: curl2shellio-prd
     bucket_name: elasticbeanstalk-us-west-2-868399730840
     on:
