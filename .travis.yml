@@ -5,3 +5,17 @@ node_js:
     - "0.11"
 before_install:
     - "npm install -g sequelize-cli"
+deploy:
+    provider: elasticbeanstalk
+    access_key_id:
+        secure: "bwVUJZBcMPp9jEiUpDACVdYf/9RK9M6RqOleFCcq8XlrY31F62zhS9fDZCJo+bYj/Gz6/mpl50mDSzDMxvraJr0Q2aQS2gjbMdGou68SRIPhugc2XbCK7IF2IsLSJRFVbvadSLll115wWbozLFaGLFJpSlRbmgi31EXXXVsILKQ="
+    secret_access_key:
+        secure: "FYIKp3K/xu1HgWzvTIJDZ4QhtW6gIyCRrAJlZNoBILnFFeETF72odtSTxBSevhE9fnq6hKCWABbLUFzyjAyESEMPySD9uq//2jKctADwIA8MVMCWs/JivmnC5viGd8PbOyZKdfH4PM96MlgTRROAlrB16zc6F1QQQhwrAyw+iqc="
+    region: us-west-2
+    app: curl2shellio
+    env: curl2shellio-prd
+    bucket_name: elasticbeanstalk-us-west-2-868399730840
+    on:
+        repo: maclennann/curl2shell.io
+        tags: true
+        all_branches: true
