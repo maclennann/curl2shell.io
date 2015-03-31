@@ -1,0 +1,121 @@
+swagger: "2.0"
+info:
+  version: "0.0.5"
+  title: curl2shell.io
+host: curl2shell.io
+basePath: /v1
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+x-a127-config: {}
+x-a127-services: {}
+paths:
+  /command:
+    x-swagger-router-controller: commands
+    x-a127-apply: {}
+    get:
+      description: Returns a random command to the user
+      operationId: getRandomCommand
+      parameters:
+        - name: category
+          in: query
+          description: What categor(ies) of commands to consider
+          required: false
+          type: string
+        - name: shell
+          in: query
+          description: Which shell(s) to consider for commands
+          required: false
+          type: string
+        - name: risk
+          in: query
+          description: Which risk level(s) to consider for commands
+          required: false
+          type: string
+        - name: count
+          in: query
+          description: Which risk level(s) to consider for commands
+          required: false
+          type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/CommandResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /command/{id}:
+    x-swagger-router-controller: commands
+    x-a127-apply: {}
+    get:
+      description: Returns the command with {id} to the user
+      operationId: getCommandById
+      parameters:
+        - name: id
+          in: path
+          description: The Id of the command to return
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/Command"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+definitions:
+  CommandResponse:
+    required:
+      - commands
+    properties:
+      commands:
+        type: array
+        items:
+          $ref: "#/definitions/Command"
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  Command:
+      type: object
+      required:
+        - id
+        - shortName
+        - shell
+        - risk
+        - category
+        - command
+      properties:
+        id:
+          type: integer
+        shortName:
+          type: string
+          example: echoHello
+          description: A short identifier for the command
+        shell:
+          type: string
+          example: bash
+          description: Which shell the command was designed for
+        risk:
+          type: string
+          example: low
+          description: How great a risk the command poses to a system
+        category:
+          type: string
+          example: fun
+          description: A broad categorization of the command
+        command:
+          type: string
+          example: echo 'hello world'
+          description: The actual command to execute

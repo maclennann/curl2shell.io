@@ -1,1 +1,0 @@
-// COMMANDS SHOULD GO IN /data/migrations/20150325175342-seed-commands (for now)

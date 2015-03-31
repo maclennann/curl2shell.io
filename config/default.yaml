@@ -1,0 +1,3 @@
+ui:
+    swaggerUi: '/v1/ui'
+    apiDocs: '/v1/docs'

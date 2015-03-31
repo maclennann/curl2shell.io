@@ -1,4 +1,4 @@
-var repository = require('../../repositories/commands/commands-repository');
+var repository = require('../repositories/commands');
 
 function CommandsService() {
 }

@@ -8,5 +8,5 @@ data.sqlite3
 !.elasticbeanstalk/*.global.yml
 
 bower_components/
-app/static/vendor
+public/vendor
 npm-debug.log
