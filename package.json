@@ -1,6 +1,6 @@
 {
   "name": "curl2shell.io",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "All the convenience of executing arbitrary commands from the Internet, from the comfort of your shell.",
   "main": "server.js",
   "scripts": {
