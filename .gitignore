@@ -9,3 +9,4 @@ data.sqlite3
 
 bower_components/
 app/static/vendor
+npm-debug.log
