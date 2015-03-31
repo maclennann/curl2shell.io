@@ -1,6 +1,6 @@
 {
   "name": "curl2shell.io",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": "true",
   "description": "An API to do terrible things to your computer",
   "keywords": [],
