@@ -6,3 +6,6 @@ data.sqlite3
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+bower_components/
+app/static/vendor
