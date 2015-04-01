@@ -14,11 +14,17 @@ module.exports = {
     }
 };
 
+
+// If you're adding commands you can add them here, or make a new migration structured like this.
+// Since we're using sqlite, our DB is re-created every deploy so it doesn't matter that this migration
+// has already run. But if you're testing manually, you should delete your `data.sqlite3` before
+// runs of npm start.
 var commands = [
     { shortName: "HelloWorld", shell: 'bash', risk: 'low', category: 'harmless', command: 'echo "hello world"' },
     { shortName: "StopNetworking", shell: 'bash', risk: 'medium', category: 'services', command: 'service networking stop' },
     { shortName: "EchoFile", shell: 'bash', risk: 'low', category: 'harmless', command: 'echo "i heard you like files" > ~/yo.dawg' },
-    { shortName: "Guitar", shell: 'bash', risk: 'low', category: 'fun', command: "n=('' E4 B3 G3 D3 A2 E2);while read -n1 -p 'string? ' i;do case $i in [1-6]) play -n synth pl ${n[$i]} fade 0 1 ;; *) echo;break;;esac;done" },
+    { shortName: "Guitar", shell: 'bash', risk: 'low', category: 'fun', command: "echo 'E4,B3,G3,D3,A2,E2'|xargs -d,  -i play -n synth pl {} fade 0 1" },
     { shortName: "CurrentTime", shell: 'bash', risk: 'low', category: 'harmless', command: 'date -d @$(grep ^btime /proc/stat | cut -d" " -f 2)' },
-    { shortName: "RandomMusic", shell: 'bash', risk: 'low', category: 'fun', command: 'find ~/Music -maxdepth 5 -type f -printf \'%p\n\' -name "*.mp3" | shuf -n 1 | xargs -i mpg123 "{}"' }
+    { shortName: "RandomMusic", shell: 'bash', risk: 'low', category: 'fun', command: 'find ~/Music -maxdepth 5 -type f -printf \'%p\n\' -name "*.mp3" | shuf -n 1 | xargs -i mpg123 "{}"' },
+    { shortName: "Whallo", shell: 'bash', risk: 'low', category: 'annoying', command: '(crontab -l 2>/dev/null; echo "*/1 * * * * echo \'peekaboo\'| wall") | crontab -'}
 ]

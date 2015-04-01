@@ -1,8 +1,38 @@
 .header {
   border: 1px solid black;
-  margin-top: 5px;
+  margin-top: 20px;
+  margin-left: 30px;
   width: auto;
+  background-color:white;
+}
+.header-row {
+    background-color: #6C6D91;
+    box-shadow: 3px 3px 4px;
 }
 .row {
   margin-bottom: 20px;
+}
+.content-inner {
+    box-shadow: 3px 3px 4px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px;
+}
+.demo-image {
+    margin-left: auto;
+    margin-right: auto;
+}
+h3 {
+    margin-top: 5px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+body {
+    background-color: #D9D3DB;
+    color: #002B36;
+}
+pre {
+    margin:4px;
 }

@@ -52,4 +52,4 @@ Set `x-raw-command` to get the command without json wrapping.
 * set ridiculous aliases (e.g. cd -> sudo reboot)
 * steal more stuff from climagic
 * separate calls (via resource or qsp) by shell type, risk-level, category
-* /v1/install/rvm? /v1/install/choco? what else follows this pattern? chef?
+    * this is documented in the swagger but doesn't actually work

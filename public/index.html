@@ -1,26 +1,68 @@
 <html>
 <head>
-  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="styles/site.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="styles/site.css">
+    <base target="_blank">
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <section class="header section col-md-3">
-        <h3>curl<i class="fa fa-bomb"></i>shell.io</h3>
-        Don't try this at home.
-      </section>
+    <div class="row header-row">
+        <section class="header col-xs-1">
+            <h3>curl<i class="fa fa-bomb"></i>shell.io</h3>
+            Don't try this at home.
+        </section>
     </div>
-    <div class="row">
-      <section class="content section col-md-12">
-        Content goes here.
-      </section>
-    </div>
-  </div>
 
-  <script src="vendor/jquery/dist/jquery.min.js"></script>
-  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <div class="container">
+
+        <div class="row">
+            <div class="primary section col-md-8">
+                <section class="section about">
+                    <div class="content-inner">
+                        <code>curl2shell.io</code> is a restful microservice that allows users to
+                        do terrible things to their computers without having to decide for themselves
+                        which terrible thing they wish to do.
+                    </div>
+                </section>
+                <section class="section get-started">
+                    <div class="content-inner">
+                        <h3>Get Started!</h3>
+                        <code>curl -H "x-raw-command:1" http://curl2shell.io/v1/command/1 | bash</code>
+                        <br/><br/>
+                        <img src="images/demo.gif" class="img-responsive well demo-image"/>
+                        <pre>
+Provide a command ID to select a specific command, or leave it out to get a
+completely random command.
+
+Note: Some commands may be harmful/destructive to your computer. Handle with care.</pre>
+                    </div>
+                </section>
+            </div>
+            <div class="secondary section col-md-4">
+                <section class="section resources">
+                    <div class="content-inner">
+                        <h3>Resources</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="v1/ui">API Docs</a></li>
+                            <li><a href="v1/docs">Swagger Doc</a></li>
+                            <li><a href="https://github.com/maclennann/curl2shell.io">Github</a></li>
+                            <li><a href="https://github.com/maclennann/curl2shell.io/blob/master/data/migrations/20150325175342-seed-commands.js#L17-24">Contribute New Commands!</a></li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="section motivation">
+                    <div class="content-inner">
+                        <h3>Motivation</h3>
+                        <p>You - yes, you - can and should use this!</p>
+                        <img src="images/doit.png" class="img-responsive demo-image"/>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
