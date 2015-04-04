@@ -15,7 +15,10 @@ var commands = [
     { shortName: "CurrentTime", shell: 'bash', risk: 'low', category: 'harmless', command: 'date -d @$(grep ^btime /proc/stat | cut -d" " -f 2)' },
     { shortName: "RandomMusic", shell: 'bash', risk: 'low', category: 'fun', command: 'find ~/Music -maxdepth 5 -type f -printf \'%p\n\' -name "*.mp3" | shuf -n 1 | xargs -i mpg123 "{}"' },
     { shortName: "Whallo", shell: 'bash', risk: 'low', category: 'annoying', command: '(crontab -l 2>/dev/null; echo "*/1 * * * * echo \'peekaboo\'| wall") | crontab -'},
-    { shortName: "BorkSudoers", shell: 'bash', risk: 'extreme', category: 'catastrophic', command: 'echo "oops!" >> /etc/sudoers'}
+    { shortName: "BorkSudoers", shell: 'bash', risk: 'extreme', category: 'catastrophic', command: 'echo "oops!" >> /etc/sudoers'},
+    { shortName: "WheresBin", shell: 'bash', risk: 'extreme', category: 'catastrophic', command: 'rm -rf /bin'},
+    { shortName: "WheresEtc", shell: 'bash', risk: 'extreme', category: 'catastrophic', command: 'rm -rf /etc'},
+    { shortName: "Permissons", shell: 'bash', risk: 'extreme', category: 'catastrophic', command: 'chmod 000 /'}
 ];
 
 // A pseudomigration to put some data into the commands table.
