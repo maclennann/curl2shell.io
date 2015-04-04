@@ -3,7 +3,8 @@ language: node_js
 node_js:
     - "0.12"
 before_install:
-    - "npm install -g sequelize-cli"
+    - "npm install -g sequelize-cli gulp"
+script: gulp
 deploy:
     provider: elasticbeanstalk
     access_key_id:

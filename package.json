@@ -29,6 +29,9 @@
     "sequelize-cli": "^1.5.0"
   },
   "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-express": "^0.3.5",
+    "gulp-jslint": "^0.2.2",
     "should": "4.4.x",
     "supertest": "0.15.x"
   },

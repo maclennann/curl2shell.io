@@ -1,18 +1,20 @@
-var repository = require('../repositories/commands');
+'use strict';
 
-function CommandsService() {
-}
+var repository = require('../repositories/commands'),
+    CommandsService = function () {
+        return this;
+    };
 
 function getCommandById(id, db) {
     return repository.getCommandById(id, db);
 }
 
-function getRandomCommand(db){
+function getRandomCommand(db) {
     return repository.getCommandCount(db)
-    .then(function(number){
-        var randomNumber = Math.floor(Math.random() * number) + 1;
-        return repository.getCommandById(randomNumber, db);
-    });
+        .then(function (number) {
+            var randomNumber = Math.floor(Math.random() * number) + 1;
+            return repository.getCommandById(randomNumber, db);
+        });
 }
 
 CommandsService.prototype = {

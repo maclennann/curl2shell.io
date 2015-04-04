@@ -1,6 +1,8 @@
-"use strict";
+'use strict';
+/*jslint unparam: true*/
+
 module.exports = {
-    up: function(migration, DataTypes, done) {
+    up: function (migration, DataTypes, done) {
         migration.createTable("Commands", {
             id: {
                 allowNull: false,
@@ -33,7 +35,7 @@ module.exports = {
             }
         }).done(done);
     },
-    down: function(migration, DataTypes, done) {
+    down: function (migration, DataTypes, done) {
         migration.dropTable("Commands").done(done);
     }
 };
