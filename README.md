@@ -15,7 +15,7 @@ do the work for you, and we'll pass the savings on to you!
 Just run:
 
 ```bash
-curl -H "x-raw-command:1" https://curl2shell.io/v1/commands 2>/dev/null | sudo bash
+curl -H "x-raw-command:1" http://curl2shell.io/v1/command 2>/dev/null | sudo bash
 ```
 
 And you'll be on your way!
@@ -25,13 +25,10 @@ we will send the packets to you encryption-free! It's that easy!
 
 But wait, there's more!
 
-[more]
-
-
 ### Actual technical stuff
 
-I'm still in the process of learning how to 'really' node. This was generated with
-the [yeoman expressrestapi generator](https://github.com/trwalker/generator-express-rest-api).
+This is built on top of an [apigee127](https://github.com/apigee-127/a127) scaffold with a few minor modifications
+(mostly jamming it together with some code I had already written).
 
 How to:
 
@@ -43,8 +40,12 @@ How to:
 
 That will migrate the DB and start the API (with a master and some workers) on port 9000.
 
-Now just hit `localhost:9000/v1/commands` to receive a random command (or /# to get a specific number).
-Set `x-raw-command` to get the command without json wrapping.
+Now just hit `localhost:8081/v1/command` to receive a random command (or /# to get a specific number).
+Set `x-raw-command` to get the command without json wrapping. `localhost:8081/v1/ui` will bring up the [swagger ui](https://github.com/swagger-api/swagger-ui).
+
+The routing and validation is all handled via [a127-magic](https://github.com/apigee-127/magic) using the
+swagger spec file in [api/swagger/swagger.yaml](api/swagger/swagger.yaml). It really is magic. And I kinda wish it
+were JSON.
 
 ### Ideas
 

