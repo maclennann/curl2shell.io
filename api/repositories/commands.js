@@ -1,4 +1,6 @@
 'use strict';
+var Logger = require('../../lib/logger'),
+    logger = new Logger('commandsRepository');
 
 var CommandsRepository = function () {
     return this;
@@ -6,8 +8,9 @@ var CommandsRepository = function () {
 
 function getCommandCount(db, predicate) {
     return db.Command.count(predicate)
-        .catch(function (err) {
-            return err;
+        .then(function (number) {
+            logger.info('Discovered %s commands', number);
+            return number;
         });
 }
 

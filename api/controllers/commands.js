@@ -21,16 +21,19 @@ function commandsController(req, res) {
                 : commands.getCommandById(req.swagger.params.id.value, db);
 
     command.then(function (command) {
+        logger.info('Got back command %s with line %s', command.get('id'), command.get('command'));
+
         if (req.headers.hasOwnProperty('x-raw-command')) {
+            logger.info('Returning raw command.');
             res.status(200).send(command.get('command'));
             return;
         }
 
         res.status(200).json(command);
-    })
-        .catch(function (value) {
-            res.status(500).json({ error: value});
-        });
+    }).catch(function (value) {
+        logger.error('Error: %s', value);
+        res.status(500).json({ error: value });
+    });
 }
 
 function commandsByRisk(req, res) {
@@ -48,6 +51,9 @@ function commandsByRisk(req, res) {
             }
 
             res.status(200).json(models);
+        }).catch(function (value) {
+            logger.error('Error: %s', value);
+            res.status(500).json({ error: value });
         });
 }
 
@@ -57,7 +63,7 @@ function commandsByCategory(req, res) {
     commands.getCommandsByCategory(db, [req.swagger.params.category.value])
         .then(function (models) {
             if (req.swagger.params.count !== undefined && req.swagger.params.count.value > 0 && req.swagger.params.count.value < models.length) {
-                res.status(200).json(models.slice(0, req.swagger.params.count.value));
+                models = models.slice(0, req.swagger.params.count.value);
                 return;
             }
 
@@ -67,6 +73,9 @@ function commandsByCategory(req, res) {
             }
 
             res.status(200).json(models);
+        }).catch(function (value) {
+            logger.error('Error: %s', value);
+            res.status(500).json({ error: value });
         });
 }
 
