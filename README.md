@@ -22,9 +22,9 @@ How to:
 
 `npm install`
 
-`npm install -g sequelize-cli`
+`npm install -g sequelize-cli gulp`
 
-`npm start`
+`gulp serve`
 
 That will migrate the DB and start the API (with a master and some workers) on port 9000.
 

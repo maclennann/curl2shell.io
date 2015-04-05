@@ -32,6 +32,7 @@
     "gulp": "^3.8.11",
     "gulp-jslint": "^0.2.2",
     "gulp-live-server": "0.0.8",
+    "gulp-shell": "^0.4.0",
     "should": "4.4.x",
     "supertest": "0.15.x"
   },
