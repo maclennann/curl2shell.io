@@ -26,4 +26,4 @@ gulp.task('serve', ['migrate'], function() {
 
     gulp.watch(['public/**/*.css', 'public/**/*.html'], server.notify);
     gulp.watch('api/**/*.js', server.start);
-})
+});

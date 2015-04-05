@@ -1,7 +1,8 @@
 'use strict';
 
 var util = require('util'),
-    commands = require('../services/commands');
+    commands = require('../services/commands'),
+    logger = new require('../../lib/logger')('CommandsController');
 
 // If the user requested raw commands instead of JSON,
 // extract and join on newlines for execution
@@ -11,6 +12,8 @@ function getRawCommands(model) {
 }
 
 function commandsController(req, res) {
+    logger.info('Processing commandsController request: %s', req.url);
+
     var db = req.app.get('models'),
         command = (req.swagger.params.id === undefined)
                 ? commands.getRandomCommand(db)
