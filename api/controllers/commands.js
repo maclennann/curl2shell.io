@@ -3,6 +3,13 @@
 var util = require('util'),
     commands = require('../services/commands');
 
+// If the user requested raw commands instead of JSON,
+// extract and join on newlines for execution
+function getRawCommands(model) {
+    model = model.map(function (e) { return e.command; });
+    return model.join('\n');
+}
+
 function commandsController(req, res) {
     var db = req.app.get('models'),
         command = (req.swagger.params.id === undefined)
@@ -28,7 +35,11 @@ function commandsByRisk(req, res) {
     commands.getCommandsByRisk(db, [req.swagger.params.risk.value])
         .then(function (models) {
             if (req.swagger.params.count !== undefined && req.swagger.params.count.value > 0 && req.swagger.params.count.value < models.length) {
-                res.status(200).json(models.slice(0, req.swagger.params.count.value));
+                models = models.slice(0, req.swagger.params.count.value);
+            }
+
+            if (req.headers.hasOwnProperty('x-raw-command')) {
+                res.status(200).send(getRawCommands(models));
                 return;
             }
 
@@ -43,6 +54,11 @@ function commandsByCategory(req, res) {
         .then(function (models) {
             if (req.swagger.params.count !== undefined && req.swagger.params.count.value > 0 && req.swagger.params.count.value < models.length) {
                 res.status(200).json(models.slice(0, req.swagger.params.count.value));
+                return;
+            }
+
+            if (req.headers.hasOwnProperty('x-raw-command')) {
+                res.status(200).send(getRawCommands(models));
                 return;
             }
 

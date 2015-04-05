@@ -12,19 +12,6 @@ Now, just pipe it to bash and you will be executing commands with ease!
 No more messy copy/pasting! No more tedious man pages or ServerFault! Let us
 do the work for you, and we'll pass the savings on to you!
 
-Just run:
-
-```bash
-curl -H "x-raw-command:1" http://curl2shell.io/v1/command 2>/dev/null | sudo bash
-```
-
-And you'll be on your way!
-
-Don't want to wait for that pesky HTTPS encryption? No problem! Just drop the S and
-we will send the packets to you encryption-free! It's that easy!
-
-But wait, there's more!
-
 ### Actual technical stuff
 
 This is built on top of an [apigee127](https://github.com/apigee-127/a127) scaffold with a few minor modifications
@@ -47,10 +34,6 @@ The routing and validation is all handled via [a127-magic](https://github.com/ap
 swagger spec file in [api/swagger/swagger.yaml](api/swagger/swagger.yaml). It really is magic. And I kinda wish it
 were JSON.
 
-### Ideas
-
-* /v1/install/cron.sh - installs a cron job that just curls /v1/commands and pipes to bash once and hour at random minute
-* set ridiculous aliases (e.g. cd -> sudo reboot)
-* steal more stuff from climagic
-* separate calls (via resource or qsp) by shell type, risk-level, category
-    * this is documented in the swagger but doesn't actually work
+### TODO
+* Make the swagger doc less aspirational as far as filtering and stuff goes.
+* Throw in a vagrant box to make testing the more-catastrophic commands easier

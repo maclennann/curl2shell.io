@@ -10,3 +10,5 @@ data.sqlite3
 bower_components/
 public/vendor
 npm-debug.log
+
+.vagrant
