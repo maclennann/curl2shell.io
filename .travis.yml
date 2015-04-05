@@ -19,3 +19,7 @@ deploy:
         repo: maclennann/curl2shell.io
         tags: true
         all_branches: true
+addons:
+    code_climate:
+        repo_token:
+            secure: "cc5bvMGZ9vUcwHH1x2CkvGknVl3bL84NK7gEZiIiaDkVfaqMVRGklF0hKhYe9mLM5zvWzicjtnsIiYEsAZjPmREiXeIzgPuHM2AWF5n25zNX/L0rtvLzJtF4rcT7cux+JZw1FVAnoPQl0vxoLxPJv7dRD5UW50XwX44gl3WcMi0="

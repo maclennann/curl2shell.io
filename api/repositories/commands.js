@@ -21,28 +21,26 @@ function getCommandById(id, db) {
     });
 }
 
+function whereIn(field, values) {
+    var whereClause = { where: {} };
+    whereClause.where[field] = { in: values};
+    return whereClause;
+}
+
 function getCommandsByRisk(db, acceptableRisks) {
-    return db.Command.findAll({
-        where: {
-            risk: {
-                in: acceptableRisks
-            }
-        }
-    }).then(function (models) {
-        return models;
-    });
+    return db.Command
+        .findAll(whereIn('risk', acceptableRisks))
+        .then(function (models) {
+            return models;
+        });
 }
 
 function getCommandsByCategory(db, acceptableCategories) {
-    return db.Command.findAll({
-        where: {
-            category: {
-                in: acceptableCategories
-            }
-        }
-    }).then(function (models) {
-        return models;
-    });
+    return db.Command
+        .findAll(whereIn('category', acceptableCategories))
+        .then(function (models) {
+            return models;
+        });
 }
 
 CommandsRepository.prototype = {
