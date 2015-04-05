@@ -1,6 +1,7 @@
 ##curl2shell.io
 
 [![Build Status](https://travis-ci.org/maclennann/curl2shell.io.svg?branch=master)](https://travis-ci.org/maclennann/curl2shell.io)
+[![Code Climate](https://codeclimate.com/github/maclennann/curl2shell.io/badges/gpa.svg)](https://codeclimate.com/github/maclennann/curl2shell.io)
 
 Execute arbitrary commands from the Internet without ever leaving your terminal!
 
