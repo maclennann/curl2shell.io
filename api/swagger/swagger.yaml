@@ -50,6 +50,62 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /command/risk/{risk}:
+    x-swagger-router-controller: commands
+    x-a127-apply: {}
+    get:
+      description: Returns all commands with risk {risk} to the user
+      operationId: getCommandsByRisk
+      parameters:
+        - name: risk
+          in: path
+          description: The risk of the commands to return
+          required: true
+          type: string
+        - name: count
+          in: query
+          description: The max number of commands to return
+          required: false
+          type: integer
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/CommandResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /command/category/{category}:
+    x-swagger-router-controller: commands
+    x-a127-apply: {}
+    get:
+      description: Returns all commands with category {category} to the user
+      operationId: getCommandsByCategory
+      parameters:
+        - name: category
+          in: path
+          description: The category of the commands to return
+          required: true
+          type: string
+        - name: count
+          in: query
+          description: The max number of commands to return
+          required: false
+          type: integer
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/CommandResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /command/{id}:
     x-swagger-router-controller: commands
     x-a127-apply: {}
@@ -71,6 +127,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+
 
 definitions:
   CommandResponse:

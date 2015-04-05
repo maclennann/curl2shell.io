@@ -22,7 +22,37 @@ function commandsController(req, res) {
         });
 }
 
+function commandsByRisk(req, res) {
+    var db = req.app.get('models');
+
+    commands.getCommandsByRisk(db, [req.swagger.params.risk.value])
+        .then(function (models) {
+            if (req.swagger.params.count !== undefined && req.swagger.params.count.value > 0 && req.swagger.params.count.value < models.length) {
+                res.status(200).json(models.slice(0, req.swagger.params.count.value));
+                return;
+            }
+
+            res.status(200).json(models);
+        });
+}
+
+function commandsByCategory(req, res) {
+    var db = req.app.get('models');
+
+    commands.getCommandsByCategory(db, [req.swagger.params.category.value])
+        .then(function (models) {
+            if (req.swagger.params.count !== undefined && req.swagger.params.count.value > 0 && req.swagger.params.count.value < models.length) {
+                res.status(200).json(models.slice(0, req.swagger.params.count.value));
+                return;
+            }
+
+            res.status(200).json(models);
+        });
+}
+
 module.exports = {
     getRandomCommand: commandsController,
-    getCommandById: commandsController
+    getCommandById: commandsController,
+    getCommandsByRisk: commandsByRisk,
+    getCommandsByCategory: commandsByCategory
 };

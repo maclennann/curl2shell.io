@@ -21,9 +21,35 @@ function getCommandById(id, db) {
     });
 }
 
+function getCommandsByRisk(db, acceptableRisks) {
+    return db.Command.findAll({
+        where: {
+            risk: {
+                in: acceptableRisks
+            }
+        }
+    }).then(function (models) {
+        return models;
+    });
+}
+
+function getCommandsByCategory(db, acceptableCategories) {
+    return db.Command.findAll({
+        where: {
+            category: {
+                in: acceptableCategories
+            }
+        }
+    }).then(function (models) {
+        return models;
+    });
+}
+
 CommandsRepository.prototype = {
     getCommandCount: getCommandCount,
-    getCommandById: getCommandById
+    getCommandById: getCommandById,
+    getCommandsByRisk: getCommandsByRisk,
+    getCommandsByCategory: getCommandsByCategory
 };
 
 var commandsRepository = new CommandsRepository();

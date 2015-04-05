@@ -17,9 +17,19 @@ function getRandomCommand(db) {
         });
 }
 
+function getCommandsByRisk(db, acceptableRisks) {
+    return repository.getCommandsByRisk(db, acceptableRisks);
+}
+
+function getCommandsByCategory(db, acceptableCategories) {
+    return repository.getCommandsByCategory(db, acceptableCategories);
+}
+
 CommandsService.prototype = {
     getCommandById: getCommandById,
-    getRandomCommand: getRandomCommand
+    getRandomCommand: getRandomCommand,
+    getCommandsByRisk: getCommandsByRisk,
+    getCommandsByCategory: getCommandsByCategory
 };
 
 var commandsService = new CommandsService();
