@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     jslint = require('gulp-jslint'),
-    server = require('gulp-express');
+    gls = require('gulp-live-server');
 
 gulp.task('default', ['lint']);
 
@@ -15,8 +15,9 @@ gulp.task('lint', function() {
 });
 
 gulp.task('server', function() {
-    server.run(['app.js']);
+    var server = gls.new('app.js');
+    server.start();
 
-    gulp.watch(['app.js', './api/**/*.js', './data/**/*.js'], server.notify());
-    gulp.watch(['app.js', './api/**/*.js', './data/**/*.js'], ['lint']);
+    gulp.watch(['public/**/*.css', 'public/**/*.html'], server.notify);
+    gulp.watch('api/**/*.js', server.start);
 })
